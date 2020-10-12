@@ -7,7 +7,6 @@ feedparser==5.2.1
 freezegun==0.3.11
 gevent==1.1.2 ; sys_platform != 'win32' and python_version < '3.7'
 gevent==1.5.0 ; python_version >= '3.7'
-gevent==1.4.0 ; sys_platform == 'win32'
 greenlet==0.4.10 ; python_version < '3.7'
 greenlet==0.4.15 ; python_version >= '3.7'
 html2text==2018.1.9
@@ -40,7 +39,7 @@ qrcode==6.1
 reportlab==3.5.13
 requests==2.21.0
 zeep==3.2.0
-python-stdnum==1.8
+python-stdnum==1.8.1
 vobject==0.9.6.1
 Werkzeug==0.16.1
 XlsxWriter==1.1.2
