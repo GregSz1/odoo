@@ -1,0 +1,114 @@
+<odoo>
+  <data>
+    <!-- explicit list view definition -->
+
+    <record model="ir.ui.view" id="egpos.list">
+      <field name="name">EGPOS list</field>
+      <field name="model">egpos.model</field>
+      <field name="arch" type="xml">
+		<form string="Course Form">
+			<sheet>
+				<group>
+					<field name="name"/>
+				</group>
+				<notebook>
+					<page string="Description">
+						<field name="description"/>
+					</page>
+					<page string="About">
+						This is an example of notebooks
+					</page>
+				</notebook>
+			</sheet>
+		</form>
+	  </field>
+    </record>
+
+	<record model="ir.ui.view" id="egpos.search_view">
+		<field name="name">EGPOS search</field>
+		<field name="model">egpos.model</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name"/>
+				<field name="description"/>
+			</search>
+		</field>
+	</record>
+
+	<!-- session form view -->
+	<!--<record model="ir.ui.view" id="session_form_view">
+		<field name="name">session.form</field>
+		<field name="model">egpos.session</field>
+		<field name="arch" type="xml">
+			<form string="Session Form">
+				<sheet>
+					<group>
+						<field name="name"/>
+						<field name="start_date"/>
+						<field name="duration"/>
+						<field name="seats"/>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record model="ir.actions.act_window" id="session_list_action">
+		<field name="name">Sessions</field>
+		<field name="res_model">egpos.session</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<menuitem id="session_menu" name="Sessions"
+			parent="openacademy_menu"
+			action="session_list_action"/>-->
+
+
+    <!-- actions opening views on models -->
+
+    <record model="ir.actions.act_window" id="egpos.action_window">
+      <field name="name">EGPOS window</field>
+      <field name="res_model">egpos.model</field>
+      <field name="view_mode">tree,form</field>
+	  <field name="help" type="html">
+		  <p class="o_view_nocontent_smiling_face">
+		    Models
+		  </p>
+	  </field>
+    </record>
+
+
+    <!-- server action to the one above -->
+
+    <record model="ir.actions.server" id="egpos.action_server">
+      <field name="name">EGPOS server</field>
+      <field name="model_id" ref="model_egpos_model"/>
+      <field name="state">code</field>
+      <field name="code">
+        action = {
+          "type": "ir.actions.act_window",
+          "view_mode": "tree,form",
+          "res_model": model._name,
+        }
+      </field>
+    </record>
+
+
+    <!-- Top menu item -->
+
+    <menuitem name="EGPOS" id="egpos.menu_root"/>
+
+    <!-- menu categories -->
+
+    <menuitem name="Menu 1" id="egpos.menu_1" parent="egpos.menu_root"/>
+    <menuitem name="Menu 2" id="egpos.menu_2" parent="egpos.menu_root"/>
+
+    <!-- actions -->
+
+    <menuitem name="List" id="egpos.menu_1_list" parent="egpos.menu_1"
+              action="egpos.action_window"/>
+    <menuitem name="Server to list" id="egpos" parent="egpos.menu_2"
+              action="egpos.action_server"/>
+
+  </data>
+</odoo>
