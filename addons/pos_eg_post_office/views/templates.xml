@@ -2,6 +2,7 @@
 	<template id="assets" inherit_id="point_of_sale.assets">
 		<xpath expr="." position="inside">
 			<script type="text/javascript" src="/pos_eg_post_office/static/lib/js/jquery.ui.touch-punch.js"></script>
+			<script type="text/javascript" src="/pos_eg_post_office/static/lib/js/axios.min.js"></script>
 			<script type="text/javascript" src="/pos_eg_post_office/static/src/js/AddServiceButton.js"></script>
 			<script type="text/javascript" src="/pos_eg_post_office/static/src/js/ParcelPickupPopup.js"></script>
 		</xpath>

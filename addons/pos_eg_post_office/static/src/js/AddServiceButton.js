@@ -15,15 +15,15 @@ odoo.define('pos_post_office.AddServiceButton', function (require) {
             return this.env.pos.get_order().get_selected_orderline();
         }
         async onClick() {
-            //if (!this.selectedOrderline) return;
+            if (!this.selectedOrderline) return;
 
-            const { confirmed, payload: inputNote } = await this.showPopup('ParcelPickupPopup', {
+            const { confirmed, payload: response } = await this.showPopup('ParcelPickupPopup', {
                 startingValue: '',
-                title: this.env._t('Enter the label'),
+                title: this.env._t('Parcel Pickup'),
             });
 
             if (confirmed) {
-                //this.selectedOrderline.set_note(inputNote);
+                this.selectedOrderline.set_note(JSON.stringify(response));
             }
         }
     }

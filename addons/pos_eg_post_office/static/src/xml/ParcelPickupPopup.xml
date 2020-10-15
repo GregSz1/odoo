@@ -12,6 +12,12 @@
                         <t t-esc="props.body" />
                     </p>
                     <input type="text" t-model="state.inputValue" t-ref="input" />
+					<div class="div">Name: <t t-esc="state.name"/></div>
+					<div class="div">Surname: <t t-esc="state.surname"/></div>
+					
+					<div class="button" t-on-click="check">
+                        Check
+                    </div>
                 </div>
                 <div class="footer">
                     <div class="button confirm" t-on-click="confirm">
