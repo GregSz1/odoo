@@ -2,7 +2,7 @@ odoo.define('pos_post_office.ParcelPickupPopup', function (require) {
     'use strict';
 
     const PROXYURL = 'https://cors-anywhere.herokuapp.com'
-    const WSURL = 'https://ff8c0c10d146.ngrok.io'
+    const WSURL = 'https://eb825eca5838.ngrok.io'
 
     const { useState, useRef } = owl.hooks;
     //const axios = require('axios.min')
